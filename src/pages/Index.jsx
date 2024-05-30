@@ -25,6 +25,12 @@ const Index = () => {
     setTasks(newTasks);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      addTask();
+    }
+  };
+
   return (
     <Container centerContent maxW="container.md" py={10}>
       <VStack spacing={4} w="100%">
@@ -33,6 +39,7 @@ const Index = () => {
             placeholder="Enter a new task"
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
           <Button onClick={addTask} colorScheme="teal">
             Add Task
